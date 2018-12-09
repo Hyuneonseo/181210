@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8"/>
+	<script src="paper.js"></script>
+	<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Noto+Sans|Noto+Sans+KR" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Heebo|Hind+Madurai|Hind+Siliguri|Nunito+Sans|Yantramanav" rel="stylesheet">
+	<title>땋은머리.파인만</title>
+	<style>
+		@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+		a:link, a:active, a:visited{text-decoration: none; }
+        a:link, a:active, a:visited{color: black;}
+
+        body {
+		   transform: scale(0.9);
+		   transform-origin: 0 1;
+		   // add prefixed versions too.
+		}
+        .test {background-color: yellow;}
+		#changepage{position: fixed; top: 735px; left: -135px; width: 300px; height: 20px; background: #f3ff00; font-weight: 900; text-align: left; font-size: 1.2em; transform: rotate(-90deg);}
+		a #changepage:hover{background: black; color: #f3ff00;}
+		.tophead{margin: auto; width: 1500px; height: 130px; border: 1px solid black; font-family:'Noto Sans KR', '맑은 고딕', '돋움';}
+		#tphd1{background: #f3ff00; float: right; width: 450px; height: 20px; font-weight: 900; text-align: right; font-size: 1.1em;}
+		#tphd2{position: relative; top: 29px; border: 1px solid black; width: 500px; height: 100px; font-weight: 700; font-size: 4em; border-left:0px; }
+		#tphd3{position: relative; top: -73px; left: 1000px; border: 1px solid black; width: 500px; height: 100px; font-weight: 700; font-size: 4em; text-align: right; border-right:0px;}
+
+
+
+
+		.midcon{margin: auto; width: 1500px; height: 750px; border: 1px solid black; font-family:'Noto Sans KR', '맑은 고딕', '돋움';}
+		#midcon1{margin: auto; width: 1500px; height: 10px; background: black;}
+		#midcon2{margin: auto; width: 1500px; height: 10px; background: black; top: 730px; position: relative;}
+		#midcon3{margin: auto; width: 10px; height: 750px; background: black; top: -20px; position: relative;}
+		#midcon4{position: relative; border: 1px solid red; width: 585px; height: 570px; top: -760px; left: 0px; text-align: left; font-size: 2em; font-weight: 700; line-height: 1.7em; overflow: auto; padding: 80px;}
+		#midcon4:hover{color: white;}
+		#midcon5{position: relative; background: pink; width: 745px; height: 732px; top: -1492px; left: 755px; overflow: hidden;}
+		#midcon6{position: absolute; top: 0px; left: 0px;}
+		#midcon7{position: relative; overflow: hidden; width: 745px; height: 772px; display: none;}
+		#midcon7 img{width: 745px; height: 732px; }
+		#midmenu{position: absolute; width: 745px; height: 40px; border: 1px solid red; background: blue; z-index: 999;}
+		#midmenu1{position: absolute; width: 140px; height: 40px; border: 1px solid red; font-size: 2em; font-weight: 700; line-height: 1em; color: white; cursor: pointer; left: -1px; top: -1px;}
+		#midmenu2{position: absolute; width: 80px; height: 40px; left: 140px; border: 1px solid red; font-size: 2em; font-weight: 700; line-height: 1em; color: white; cursor: pointer; left: 140px; top: -1px;} 
+		#midmenu3{position: absolute; width: 50px; height: 40px; right: -2px; border: 1px solid red; font-size: 1em; font-weight: 400; line-height: 1em; color: white; cursor: pointer; text-align: right; top: -1px; right: -1px;}
+		#midmenu4{position: absolute; width: 140px; height: 40px; right: 49px; border: 1px solid red; font-size: 1em; font-weight: 400; line-height: 1em; color: white; cursor: pointer; text-align: right; top: -1px; right: 50px;}
+		#midconback{position: absolute; background-color: black; display: none; }
+		#midcongif{position: absolute; left: 190px; top: 200px; display: none;}
+		#myCanvas{width:745px; height:732px; background-color: white; position: absolute; transform: scale(1.1); transform-origin: 0 1;}
+
+
+
+
+		.botind{margin: auto; width: 1500px; height: 150px; border: 1px solid black; font-family:'Noto Sans KR', '맑은 고딕', '돋움'; overflow: hidden;}
+		#botind1{width: 1500px; height: 3px; background: black; top: 17px; position: relative;}
+		#botind2{width: 1500px; height: 3px; background: black; top: 128px; position: relative;}
+		#botind3{position: relative; width: 170px; height: 60px; top: 38px; border: 1px solid black; font-weight: 700; font-size: 4em; line-height: 55px; background: white; border-left:0px; }
+		#botind3:hover{background: #f3ff00;}
+		#botind4{width: 110px; height: 112px; border: 1px solid black; float: right; position: relative; top: -173px; text-align: center;}
+		#botind5{width: 110px; height: 112px; border: 1px solid black; float: right; position: relative; top: -173px; text-align: center;}
+		#botind6{width: 110px; height: 112px; border: 1px solid black; float: right; position: relative; top: -173px; text-align: center;}
+		#botind7{width: 110px; height: 112px; border: 1px solid black; float: right; position: relative; top: -173px; text-align: center;}
+		#botind4 img,#botind5 img,#botind6 img,#botind7 img {height: 110px;}
+
+		#botind8{height:20px; position: relative; width: 300px; height: 60px; top: -148px; border: 1px solid black; font-weight: 900; font-size: 4.6em; line-height: 65px; background: white; left: 751px; font-family: 'Yantramanav', sans-serif; cursor: pointer; text-align: right;}
+		#botind8:hover{background: #f3ff00;}
+		#botind9{position: relative; width: 320px; height: 60px; top: -24px; left: 170px; border: 1px solid black; font-weight: 700; font-size: 4em; line-height: 55px; background: blue; cursor: pointer;}
+		#botind10{position: relative; width: 320px; height: 60px; top: -86px; left: 490px; border: 1px solid black; font-weight: 700; font-size: 4em; line-height: 55px; background: red; cursor: pointer;}	
+
+		.drag1,.drag2,.drag3,.drag4,.drag5,.drag6,.drag7,.drag8,.drag9{position: relative;
+			  top: -740px;
+			  left: 10px;
+			  width:2px;
+			  height:70px;
+			  border-radius: 50%;
+			  
+			  z-index:100000;
+			  margin-top:10px;
+			}
+		.drag1 img,.drag2 img,.drag3 img,.drag4 img,.drag5 img,.drag6 img,.drag7 img,.drag8 img,.drag9 img{width: 40px; height: 40px;}		
+	</style>
+	</head>
+	<body>
+
+		<a href="idk.html"><div id="changepage">느낌표에서 시작된 문장부호 페이지</div></a>
+		<div class="tophead">
+			<div id="tphd1">
+				- 드래그 <a href="idk4.html" style="color: #f3ff00;">하면 설명이 나오게? 설명아니어도 어떤 문장 나오게</a>
+			</div>
+			<div id="tphd2">
+				< <a href="idk5.html">5</a> , <a href="idk6.html">6</a> , <a href="idk7.html"  style="color: green;">7</a> , 8 >
+			</div>
+			<div id="tphd3">
+				시적허용
+			</div>
+		</div>	
+		<div class="midcon">
+			<div id="midmenu">
+				<div id="midmenu1">
+					배경지식,
+				</div>
+				<div id="midmenu2">
+					끄기
+				</div>
+				<div id="midmenu3">
+					끄기
+				</div>
+				<div id="midmenu4">
+					🖼️캔버스사용예시
+				</div>
+			</div>
+			<div id="midcon1"></div>
+			<div id="midcon2"></div>
+			<div id="midcon3"></div>
+			<div id="midcon4">
+				<div id="midconback">
+					<img src="fyman.png">
+				</div>
+				<div id="midcongif">
+					<img src="umum.gif">
+				</div>
+				<a href="fyman.png">자연에서 발생하는 모오든 일은 모옥적 지향적인가요? 
+즈그 몸통보다 더 큰 나뭇-가지나 잎사귀를 허둥대며 운반하는 개미들은 부운명히 모옥적을 가진 듯이 보이죠. 
+그런데 가을에 지는 낙엽이나 한밤중에 소다지는 우박, 우박, 우박도 모옥적을 가질까요? 
+아리스토텔레스는 모오든 자연물이 모옥적을 추구하는 본성을 타고나며, 
+외적 원인이 아니라 내재적 보온성에 따른 운동을 한다는 모옥적론을 제시하죠... 
+그는 자연물이 단순히 모옥적을 갖는 데 그치는 것이 아니라 모옥적을 실현할 능력도 타고났으므로.. 
+그 모옥적은 방해받지 않는 한  반드시 실현될 것이고, 
+그 보온성적 모옥적의 실현은 운동 주체에 항상 바람직,한 결과를 가져온다고 믿죠. 
+아리스토텔레스는 이러한 자신의 견해를 “자여는 허뙨 이를 하지 안는다!” 라는 말로 요약해요.
+			</div>
+			<div id="midcon5" onclick="takeScreenShot()">
+				<div id="midcon7">
+					<img src="grid4.png">
+				</div>
+				
+				<div id="midcon6">
+					<canvas id="myCanvas"></canvas>
+				</div>	
+
+				<div class="drag1"><img src="drag1.png"></div>
+		      	<div class="drag2"><img src="drag2.png"></div>
+		      	<div class="drag3"><img src="drag3.png"></div>
+		      	<div class="drag4"><img src="drag4.png"></div>	
+		      	<div class="drag5"><img src="drag5.png"></div>
+		      	<div class="drag6"><img src="drag6.png"></div>
+		      	<div class="drag7"><img src="drag7.png"></div>
+		      	<div class="drag8"><img src="drag8.png"></div>	
+		      	<div class="drag9"><img src="drag9.png"></div>	
+			</div>
+		</div>
+		<div class="botind">
+			<div id="botind1"></div>
+			<div id="botind2"></div>
+			<div id="botind3">보기 :</div>
+			<div id="botind9">소스 보기 <a href="" style="font-size: 10pt; position: absolute; line-height: 13pt; top: 0px; color: white;">드래그 해서 사용</a></div>
+			<div id="botind10">소스 끄기</div>
+
+			<div id="botind4">
+				<img src="interrobang.png">
+			</div>
+			<div id="botind5">
+				<img src="acclamation.png">
+			</div>
+			<div id="botind6">
+				<img src="conviction.png">
+			</div>
+			<div id="botind7">
+				<img src="authority.png">
+			</div>
+
+			<div id="botind8" style="font-size: 1em; ">캔버스 안에서 클릭하여 스냅샷 저장</div>
+		</div>
+		
+		
+	</body>
+	<script>
+
+		$(".drag1").draggable();
+		$(".drag2").draggable();
+		$(".drag3").draggable();
+		$(".drag4").draggable();
+		$(".drag5").draggable();
+		$(".drag6").draggable();
+		$(".drag7").draggable();
+		$(".drag8").draggable();
+		$(".drag9").draggable();
+		var takeScreenShot = function() {
+		    html2canvas(document.getElementById("midcon5"), {
+		        onrendered: function (canvas) {
+		            var tempcanvas=document.createElement('canvas');
+		            tempcanvas.width=745;
+		            tempcanvas.height=732;
+		            var context=tempcanvas.getContext('2d');
+		            context.drawImage(canvas,0,0,745,730,0,0,745,732);
+		            var link=document.createElement("a");
+		            link.href=tempcanvas.toDataURL('image/jpg');   //function blocks CORS
+		            link.download = 'screenshot.jpg';
+		            link.click();
+		        }
+		    });
+		}
+		midmenu1.onclick = function(){
+			document.getElementById("midconback").style.display = 'inline';		
+		}
+		midmenu2.onclick = function(){
+			document.getElementById("midconback").style.display = 'none';		
+		}
+		midmenu4.onclick = function(){
+			document.getElementById("midcongif").style.display = 'inline';		
+		}
+		midmenu3.onclick = function(){
+			document.getElementById("midcongif").style.display = 'none';		
+		}
+
+
+
+		botind9.onclick = function(){
+			document.getElementById("midcon7").style.display = 'inline';
+		}
+		botind10.onclick = function(){
+			document.getElementById("midcon7").style.display = 'none';
+		}
+
+		window.onscroll = function() {myFunction()};
+
+		function myFunction() {
+		    if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+		        document.getElementById("midcon4").className = "test";
+		    } else {
+		        document.getElementById("midcon4").className = "";
+		    }
+		}
+
+		
+	</script>
+	<script type="text/paperscript" canvas="myCanvas">
+			var points = 25;
+
+			// The distance between the points:
+			var length = 35;
+
+			var path = new Path({
+				strokeColor: '#E4141B',
+				strokeWidth: 10,
+				strokeCap: 'round'
+			});
+
+			var start = view.center / [10, 1];
+			for (var i = 0; i < points; i++)
+				path.add(start + new Point(i * length, 0));
+
+			function onMouseMove(event) {
+				path.firstSegment.point = event.point;
+				for (var i = 0; i < points - 1; i++) {
+					var segment = path.segments[i];
+					var nextSegment = segment.next;
+					var vector = segment.point - nextSegment.point;
+					vector.length = length;
+					nextSegment.point = segment.point - vector;
+				}
+				path.smooth({ type: 'continuous' });
+			}
+
+			function onMouseDown(event) {
+				path.fullySelected = true;
+				path.strokeColor = '#e08285';
+			}
+
+			function onMouseUp(event) {
+				path.fullySelected = true;
+				path.strokeColor = '#e4141b';
+			}
+		</script>
+</html>
